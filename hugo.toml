@@ -1,0 +1,4 @@
+baseURL = 'https://example.org/'
+languageCode = 'de-CH'
+title = 'Valucor AG ORSA-Tool Dokumentation'
+theme = 'hugo-book'
