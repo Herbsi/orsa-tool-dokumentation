@@ -2,3 +2,6 @@
 [module.hugoVersion]
   extended = true
   min = "0.146.0"
+[params]
+  BookLogo = "wheel.png"
+  BookFavicon = "wheel.png"
