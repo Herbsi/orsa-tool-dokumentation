@@ -1,5 +1,13 @@
-/*
-  This is an empty file for backward compatibility.
-  Custom font used to be defined here.
-  It will be removed eventually.
-*/
+
+@font-face {
+    font-family: "KF Meta OT Normal";
+    src: url("https://db.onlinewebfonts.com/t/c8e1ec71c56aad7529fe2c3701fe49f7.eot");
+    src: url("https://db.onlinewebfonts.com/t/c8e1ec71c56aad7529fe2c3701fe49f7.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/c8e1ec71c56aad7529fe2c3701fe49f7.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/c8e1ec71c56aad7529fe2c3701fe49f7.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/c8e1ec71c56aad7529fe2c3701fe49f7.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/c8e1ec71c56aad7529fe2c3701fe49f7.svg#KF Meta OT Normal")format("svg");
+}
+body {
+  font-family: 'KF Meta OT Normal', system-ui, -apple-system, sans-serif;
+}
