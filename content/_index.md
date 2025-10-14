@@ -22,11 +22,15 @@ Das ORSA-Tool besteht aus zwei Komponenten: dem Graphical User Interface (GUI) z
 
 ## Finanzplanung und Szenarienfestlegung
 
+**TODO**: Ekläre Interpretation der Jahre (eg, dass Bilanz \(N\) zum 1.1.\(N\) ist und dass Erfolgsrechnung \(N\) die Bilanz vom 1.1.\(N\) zum 1.1.\(N+1\) überführt.)
+
 ## Graphical User Interface (GUI)
 
 ![ORSA-Tool GUI](/images/interface.png)
 
 ## ORSA-Input-Datei
+
+Dieser Abschnitt beschreibt die Funktionsweise und verfügbaren Blätter der ORSA-Input-Datei.
 
 ### Zellenformatvorlagen
 
@@ -44,8 +48,8 @@ Alle übrigen Zellenformatvorlagen enthalten Beschriftungen und dienen der Über
 
 Folgende Konfigurationen werden auf dem Blatt «General Inputs» gemacht:
 - **Anzahl Simulationen**: Die Solvenzberechung des FINMA `sstCalculation` R-Tools basiert darauf.
-Bei weniger Simulation (10'000) läuft das Tool schneller, aber die Solvenz kann unterschätzt werden; mehr Simulationen (100'000 oder 1'000'000) führen zu einem genaueren Ergebnis.
-Wir empfehlen 1'000'000 für die endgültige Berechnung zu verwenden.
+Bei weniger Simulation (\(10~000\)) läuft das Tool schneller, aber die Solvenz kann unterschätzt werden; mehr Simulationen (\(100~000\) oder \(1~000~000\)) führen zu einem genaueren Ergebnis.
+Wir empfehlen \(1~000~000\) für die endgültige Berechnung zu verwenden.
 - **Planungsjahre**:  Eine Zahl zwischen \(0\) und \(5\).
 Die Anzahl an Jahren, die im ORSA-Prozess betrachtet wird.
 Bei \(0\) wird nur der aktuelle SST reproduziert.
@@ -76,8 +80,8 @@ Diese Erfolgsrechnung wird als *Budget* bezeichnet.
 
 Der Block «Aufteilung Aktiven» enthält einen Teil der Aktivpositionen der SST-Bilanz.
 Im Block wird eingegeben, welchen prozentualen Anteil eine Position eine Position an ihrer Superposition ausmacht.
-Zum Beispiel bedeutet \(50\ \%\) in der Zeile «1.1.1 Immobilien», dass \(50\ \%\) der Position «1.1 Kapitalanlagen» auf «1.1.1 Immobilien» entfallen;
-\(25\ \%\) in der Zeile «Kollektive Kapitalanlagen» bedeutet, dass \(25\ \%\) der Position «1.1.7 Übrige Kapitalanlagen» auf «Kollektive Kapitalanlagen» entfallen, *nicht* etwa \(25\ \%\) der Position «1.1 Kapitalanlagen».
+Zum Beispiel bedeutet \(50~\%\) in der Zeile «1.1.1 Immobilien», dass \(50~\%\) der Position «1.1 Kapitalanlagen» auf «1.1.1 Immobilien» entfallen;
+\(25~\%\) in der Zeile «Kollektive Kapitalanlagen» bedeutet, dass \(25~\%\) der Position «1.1.7 Übrige Kapitalanlagen» auf «Kollektive Kapitalanlagen» entfallen, *nicht* etwa \(25~\%\) der Position «1.1 Kapitalanlagen».
 
 Beim ersten Lauf des Tools wird die blaue Spalte automatisch mit den Werten des aktuellen SSTs befüllt.
 
@@ -87,9 +91,9 @@ Beim ersten Lauf des Tools wird die blaue Spalte automatisch mit den Werten des 
 
 Der Block «Aufteilung Preisabhängige Assets und Beteiligungen» entspricht 1 : 1 dem Blatt «Asset Prices» aus dem SST Template.
 Im Block wird eingegeben, welchen prozentualen Anteil eine Währung an der entsprechenden Art ausmacht.
-Zum Beispiel bedeutet \(50\ \%\) in der Zeile «Aktien»/«CHF», dass \(50\ \%\) der Aktien auf CHF entfallen.
+Zum Beispiel bedeutet \(50~\%\) in der Zeile «Aktien»/«CHF», dass \(50~\%\) der Aktien auf CHF entfallen.
 
-Der Wert für «Total (immaterielle) Beteiligungen» ist \(100\ \%\) oder \(0\ \%\), je nach dem, ob der Versicherer Beteiligungen hält oder nicht.
+Der Wert für «Total (immaterielle) Beteiligungen» ist \(100~\%\) oder \(0~\%\), je nach dem, ob der Versicherer Beteiligungen hält oder nicht.
 
 In den Zeilen «Wohnimmobilien» und «Geschäftsimmobilien» wird eingegeben, welchen prozentualen Anteil die Wohn- bzw. Geschäftsimmobilien an allen Immobilien ausmachen.
 
@@ -101,7 +105,7 @@ Beim ersten Lauf des Tools wird die blaue Spalte automatisch mit den Werten des 
 
 Der Block «Aufteilung Festverzinsliche Wertpapiere» entspricht 1 : 1 dem Blatt «Fixed Income» aus dem SST Template.
 Im Block wird eingegeben, welchen prozentualen Anteil eine Währung-Rating-Kombination an allen gehaltenen festverzinslichen Wertpapieren ausmacht.
-Zum Beispiel bedeuet \(50\ \%\) in der Zeile «CHF»/«GOVI», dass \(50\ \%\) aller gehaltenen festverzinslichen Wertpapiere in CHF sind und Rating GOVI haben.
+Zum Beispiel bedeuet \(50~\%\) in der Zeile «CHF»/«GOVI», dass \(50~\%\) aller gehaltenen festverzinslichen Wertpapiere in CHF sind und Rating GOVI haben.
 
 Beim ersten Lauf des Tools wird die blaue Spalte automatisch mit den Werten des aktuellen SSTs befüllt.
 
@@ -119,10 +123,11 @@ Beim ersten Lauf des Tools wird die blaue Spalte automatisch mit den Werten des 
 ![Inputblock «Anrechnung der Aktiven am gebundenen Vermögen»](/images/block-anrechnung-der-aktiven-am-gebundenen-vermögen.png)
 
 Der Block «Anrechnung der Aktiven am gebundenen Vermögen» enthält einen Teil der Aktivpositionen der Bilanz gemäss AVO-FINMA.
-Im Block wird angegeben, welcher prozentuale Anteil einer Position dem gebundenen Vermögen zugewiesen wird.
-Zum Beispiel bedeuet \(50 \%\) in der Zeile «1.1.1 Immobilien», dass \(50\ \%\)  der Position «1.1.1 Immobilien» dem gebundenen Vermögen zugewiesen werden.
+Im Block wird angegeben, welcher prozentuale Anteil einer Position dem gebundenen Vermögen angerechnet wird.
+Der Deckungsbetrag des gebundenen Vermögen wird basierend auf der statutarischen Bilanz berechnet.
+Zum Beispiel bedeuet \(50~\%\) in der Zeile «1.1.1 Immobilien», dass \(50~\%\) der Position «1.1.1 Immobilien» *in der statutarischen Bilanz* dem gebundenen Vermögen angerechnet werden.
 
-Die grauen Positionen dienen der Übersicht; sie können nicht dem gebundenen Vermögen zugewiesen werden.
+Die grauen Positionen dienen der Übersicht; sie können nicht dem gebundenen Vermögen angerechnet werden.
 
 #### Block «Fortschreibung der statutarischen Bilanz»
 
@@ -131,8 +136,8 @@ Die grauen Positionen dienen der Übersicht; sie können nicht dem gebundenen Ve
 Der Block «Fortschreibung der statutarischen Bilanz» führt alle Aktivpositionen der Bilanz gemäss AVO-FINMA, die sich im ORSA-Prozess verändern können.
 Im Block wird angegeben, wie die statuarische Position abhängig von der entsprechenden marktnah-bewerteten Position in der SST Bilanz verändert wird.
 Das Tool unterstützt drei Möglichkeiten, wie sich der statutarische Wert von Position \(A\) von Jahr \(N\) auf Jahr \(N+1\) ändern kann:
-- **relativ**: Ändert sich der marktnahe Wert von \(A\) um \(X\ \%\), dann ändert sich der statutarische Wert von A um \(X\ \%\).
-- **absolut**: Ändert sich der martknahe Wert von \(A\) um \(X\ \%\) CHF, dann ändert sich der statutarische Wert von A um \(X\) CHF.
+- **relativ**: Ändert sich der marktnahe Wert von \(A\) um \(X~\%\), dann ändert sich der statutarische Wert von A um \(X~\%\).
+- **absolut**: Ändert sich der martknahe Wert von \(A\) um \(X~\%\) CHF, dann ändert sich der statutarische Wert von A um \(X\) CHF.
 - **konstant**: Der statutarische Wert von \(A\) ändert sich nicht.
 
 ### Blatt «Sz - `SZENARIO`»
@@ -195,17 +200,18 @@ In die letzte Spalte kann nichts eingegeben werden, weil die Solvenz jeweils zum
 
 In diesem Abschnitt wird beschrieben, wie das Tool ein SST Template von Jahr \(N\) zu Jahr \(N+1\) überführt, basierend auf den Eingaben in der ORSA-Input-Datei.
 Es werden alle Blätter im SST Template behandelt, die verändert werden, und zwar in der Reihenfolge, in der sie das Tool verändert; die Reihenfolge kann von der Reihenfolge der Blätter im SST Template abweichen.
+Blätter, die nicht explizit behandelt werden, werden vom Tool nicht verändert.
 
 In diesem Abschnitt gehen wir von \(3\) Planungsjahren aus, aber es sind zwischen \(0\) und \(5\) möglich, vgl. [Blatt «General Inputs»](#blatt-general-inputs).
 Ausgehend vom SST Template für den aktuellen SST \(N\), werden vom Tool also pro Szenario SST Templates für die Jahre \(N+1\), \(N+2\) und \(N+3\) erzeugt.
 Wir beschreiben, wie sich das SST Template vom SST \(N\) zum SST \(N+1\) verändert, aber alle Veränderungen verlaufen vollkommen identisch.
 
-### 1. Blatt «Market Initial Values»
+### Blatt «Market Initial Values»
 
 Ausser in der Planung werden die Zinskurven gemäss den Blöcken [Block «Auslenkung der gesamten Zinskurve»](#block-auslenkung-der-gesamten-zinskurve) und [Block «Konstante Zinskurve»](#block-konstante-zinskurve) verändert.
 Gibt es für eine Zinskurve Eingaben in beiden Blöcken, dann wird die Zinskurve zuerst konstant gesetzt und dann ausgelenkt.
 
-### 2. Blatt «SST Balance Sheet»
+### Blatt «SST Balance Sheet»
 
 Der totale Marktwert der Aktiven 1.1–1.5 wächst um die Summe der folgenden Positionen der effektiv eingetretenen Erfolgsrechnung:
 - Bruttoprämie
@@ -235,11 +241,11 @@ Insbesondere führt dieselbe Aufteilung der Aktiven wie im SST \(N\) zusammen mi
 
 Dann ändert sich der Anteil der versicherungstechnischen Rückstellungen aus der Rückversicherung gemäss den Positionen «Anteil Rückversicherer an Veränderung der versicherungstechnischen Rückstellungen» (verdientes Geschäft) und «Anteil Rückversicherer an Veränderung der Prämienüberträge» (unverdientes Geschäft).
 
-Die Bilanzpositionen 1.7–1.14 werden vereinfachend konstant belassen.
+Vereinfachend bleiben die Bilanzpositionen 1.7–1.14 konstant.
 
 Dann ändert sich der Best Estimate der Versicherungsverpflichtungen unter Berücksichtigung der (potenziell verschiedenen) Zinskurven im SST \(N\) und im SST \(N+1\).
 
-### 3. Blatt «Differences_Stat_SSTBalance»
+### Blatt «Differences_Stat_SSTBalance»
 
 Der statutarische Wert der Aktiven 1.1–1.6 verändern sich gemäss der Wertveränderung der Aktiven auf dem Blatt «SST Balance Sheet» und dem [Block «Fortschreibung der statutarischen Bilanz»](#block-fortschreibung-der-statutarischen-Bilanz).
 
@@ -248,7 +254,7 @@ Dann verändert sich der statutarische Wert von «Best Estimate der Versicherung
 Vereinfachend verändert sich der statutarische Wert von «Best Estimate der Versicherungsverpflichtungen (Schaden): Brutto - unverdientes Geschäft» proportional zum Marktwert.
 Es ist geplant, eine Eingabe für die Position zu unterstützen, weil die Entwicklung der Prämienüberträge unternehmensabhängig ist.
 
-### 4. Blatt «Asset Prices»
+### Blatt «Asset Prices»
 
 Der neue Exposure in CHF der preisabhängigen Assets wird gemäss folgender Tabelle bestimmt:
 | Short cut              | SST-Bilanz-Position                        |
@@ -262,7 +268,7 @@ Der neue Exposure in CHF der preisabhängigen Assets wird gemäss folgender Tabe
 
 Dann wird zwischen den Währungen gemäss dem [Block «Aufteilung Preisabhängige Assets und Beteiligungen»](#block-aufteilung-preisabhängige-assets-und-beteiligungen) alloziert.
 
-### 5. Blatt «Fixed Income»
+### Blatt «Fixed Income»
 
 Der neue Gesamtmarktwert in CHF der festverzinslichen Wertpapiere ist die Summe der folgenden Positionen der SST-Bilanz
 - 1.1.3 Festverzinsliche Wertpapiere
@@ -274,7 +280,7 @@ Dann werden der Gesamtmarktwert und die Cashflows gemäss dem [Block «Aufteilun
 Wir nehmen an, dass die Duration der Cashflows unverändert bleibt.
 Wird eine Währung-Rating-Kombination alloziert, deren Gesamtmarktwert im SST \(N\) Null ist, dann wird ein Cashflow aus allen Cashflows für CHF abgeleitet.
 
-### 6. Blatt «Insurance Cashflows»
+### Blatt «Insurance Cashflows»
 
 Der neue Cashflow für die Sparte «Schaden» in CHF ist 
 \[
@@ -283,11 +289,81 @@ Der neue Cashflow für die Sparte «Schaden» in CHF ist
 wobei \(\text{BE}_{\text{nicht diskontiert}}\) der der nicht-diskontierte Wert der SST-Bilanz-Position «Best Estimate der Versicherungsverpflichtungen (Schaden): Brutto - verdientes Geschäft» ist,
 \(\text{NL\_CH\_Direct\_PY\_Pattern}\) das PY-Pattern aus dem Nonlife Template ist,
 \(\text{Zahlungen}_{\text{netto}}\) die Summe von «Zahlungen für Versicherungsfälle brutto» und «Anteil Rückversicherer an Zahlungen für Versicherungsfälle» aus der effektiv eingetretenen Erfolgsrechnung ist und
-\(\text{NL\_CH\_Direct\_CY\_Pattern}\) das CY-Pattern aus dem Nonlife Template ist,
+\(\text{NL\_CH\_Direct\_CY\_Pattern}\) das CY-Pattern aus dem Nonlife Template ist.
 
 Die proportionale Aufteilung auf die verschiedenen Währungen bleibt konstant.
 
 Vereinfachend werden Prämienüberträge ignoriert.
 
-#### 7. Blatt «General Input»
+### Blatt «General Input»
 
+Folgende Grössen werden verändert:
+- **Erwartetes versicherungstechnisches Ergebnis**: Wird analog zum Nonlife Template berechnet, basierend auf dem Budget für das Jahr \(N+1\).
+- **MVM Schaden**: Wird proportional zur SST-Bilanz-Position «2.1 Bestmöglicher Schätzwert der Versicherungsverpflichtungen» verändert.
+- **Marktwert festverzinsliche Kapitalanlagen**: Wird auf den Wert der SST-Bilanz-Position «1.1.3 Festverzinsliche Wertpapiere» gesetzt.
+- **Best Estimate Wert der versicherungstechnischen Verpflichtungen**: Wird auf den Wert der SST-Bilanz-Position «Best Estimate der Versicherungsverpflichtungen (Schaden): Brutto - verdientes Geschäft» gesetzt.
+
+### Blatt «Forwards»
+
+Die zugrundeliegende Exposure der Preis-Forward-Verträge und das Nominal der FX-Forward-Verträge werden proportional zur Veränderung der festverzinslichen Wertpapiere je Währung auf dem [Blatt «Fixed Income»](#blatt-fixed-income) verändert.
+
+Vereinfachend wird angenommen, dass keine Verträge dazukommen oder ablaufen und dass die Fälligkeit der Verträge konstant bleibt.
+
+### Blatt «Expected Financial Result»
+
+Die Positionen verändern sich proportional zur Veränderung der SST-Bilanz-Positionen gemäss folgender Tabelle:
+| Expected Financial Result | SST-Bilanz-Positionen                                                         |
+|---------------------------|-------------------------------------------------------------------------------|
+| Hypotheken                | 1.1.5 Hypotheken                                                              |
+| Unternehmen               | 1.1.3 Festverzinsliche Wertpapiere, Anlagefonds: festverzinsliche Wertpapiere |
+| Hedgefonds                | Hedgefonds                                                                    |
+| Private Equity            | Private Equity                                                                |
+| Immobilien                | 1.1 Immobilien, Anlagefonds: Immobilien                                       |
+Vereinfachend bleiben der Delta-Restterm und SST-pflichtige Beteiligungen unverändert.
+
+### Blatt «Credit Risk Merton»
+
+Der Gesamtmarktwert und die Cashflows werden pro Kreditrisiko-behafteter Position proportional zur Veränderung im [Blatt «Fixed Income»](#blatt-fixed-income), und zwar pro Währung und Rating.
+Die Ratings vom [Blatt «Fixed Income»](#blatt-fixed-income) werden gemäss folgender Tabelle in numerische Ratingstufe überführt:
+| Rating auf [Blatt «Fixed Income»](#blatt-fixed-income) | Ratingstufe |
+|----------------------------------------------------------|-------------|
+| GOVI                                                     | 1           |
+| CANT                                                     | 1           |
+| CORP                                                     | 1           |
+| EUGO                                                     | 1           |
+| AAA                                                      | 1           |
+| AA                                                       | 2           |
+| A                                                        | 3           |
+| BBB                                                      | 4           |
+| BB                                                       | 5           |
+
+### Blatt «Credit Risk Basel»
+
+Ausser bei drei Positionsklassen (SA-BIZ A.6.1, SA-BIZ A.6.1a und SA-BIZ B.3.1) verändert sich die Exposure ohne Kreditrisikominderung proportional zur totalen Veränderung der folgenden SST-Bilanz-Positionen:
+- 1.2 Kapitalanlagen aus anteilgebundener Lebensversicherung
+- 1.3 Forderungen aus derivativen Finanzinstrumenten
+- 1.4 Depotforderungen aus übernommener Rückversicherung
+- 1.5 Flüssige Mittel
+
+Die Positionsklassen SA-BIZ A.6.1 und SA-BIZ A.6.1a verändern sich proportional zur Veränderung der SST-Bilanz-Position «1.6 Anteil versicherungstechnische Rückstellungen aus Rückversicherung»;
+die Positionsklasse SA-BIZ B.3.1 verändert sich proportional zur Veränderung der SST-Bilanz-Position «1.1.5 Hypotheken».
+
+### Blatt «Non Life»
+
+Wird die kumulierte Verteilungsfunktion verwendet, um das versicherungstechnische Risiko zu berechnen, unterstützen wird custom Code, um diese zu berechnen.
+Wird das versicherungstechnische Risiko lognormal-verteilt modelliert, dann werden die Parameter aus dem [Block «lognormal parameters»](#block-lognormal-parameters) übernommen.
+
+Andere Arten, das versicherungstechnische Risiko zu modellieren, werden momentan nicht unterstützt.
+
+### Blatt «Other Data»
+
+Die erwarteten Werte werden aus dem Budget übernommen.
+Das Rückstellungsrisiko (netto) wird proportional zur Veränderung der SST-Bilanz-Position «2.1 Bestmöglicher Schätzwert der Versicherungsverpflichtungen» verändert.
+Die diskontierten erwarteten Schadenaufwände (Normal- und Grossschäden sowie Naturkatastrophen) und das zentrierte Neuschadenrisiko (netto) werden proportional zur Veränderung der erwarteten brutto Jahresschäden verändert.
+
+Vereinfachend bleibt das zentrierte URR-Risiko (netto) konstant.
+
+### Nonlife Template
+
+Vereinfachend bleit das Nonlife Template unverändert.
+Insbesondere wird angenommen, dass Abwicklungs- und Zahlungsmuster unverändert bleiben.
