@@ -68,7 +68,7 @@ Folgende Eingabeblöcke stehen in der ORSA-Input-Datei zur Verfügung:
 ![Inputblock «Erfolgsrechnung»](/images/block-erfolgsrechnung.png)
 
 Im Block «Erfolgsrechnung» wird die Erfolgsrechnung gemäss AVO-FINMA eingegeben, wie sie für die Planungsperiode geplant ist.
-Diese Erfolgsrechnung wird als «Budget» bezeichnet.
+Diese Erfolgsrechnung wird als *Budget* bezeichnet.
 
 #### Block «Aufteilung Aktiven»»
 
@@ -195,3 +195,99 @@ In die letzte Spalte kann nichts eingegeben werden, weil die Solvenz jeweils zum
 
 In diesem Abschnitt wird beschrieben, wie das Tool ein SST Template von Jahr \(N\) zu Jahr \(N+1\) überführt, basierend auf den Eingaben in der ORSA-Input-Datei.
 Es werden alle Blätter im SST Template behandelt, die verändert werden, und zwar in der Reihenfolge, in der sie das Tool verändert; die Reihenfolge kann von der Reihenfolge der Blätter im SST Template abweichen.
+
+In diesem Abschnitt gehen wir von \(3\) Planungsjahren aus, aber es sind zwischen \(0\) und \(5\) möglich, vgl. [Blatt «General Inputs»](#blatt-general-inputs).
+Ausgehend vom SST Template für den aktuellen SST \(N\), werden vom Tool also pro Szenario SST Templates für die Jahre \(N+1\), \(N+2\) und \(N+3\) erzeugt.
+Wir beschreiben, wie sich das SST Template vom SST \(N\) zum SST \(N+1\) verändert, aber alle Veränderungen verlaufen vollkommen identisch.
+
+### 1. Blatt «Market Initial Values»
+
+Ausser in der Planung werden die Zinskurven gemäss den Blöcken [Block «Auslenkung der gesamten Zinskurve»](#block-auslenkung-der-gesamten-zinskurve) und [Block «Konstante Zinskurve»](#block-konstante-zinskurve) verändert.
+Gibt es für eine Zinskurve Eingaben in beiden Blöcken, dann wird die Zinskurve zuerst konstant gesetzt und dann ausgelenkt.
+
+### 2. Blatt «SST Balance Sheet»
+
+Der totale Marktwert der Aktiven 1.1–1.5 wächst um die Summe der folgenden Positionen der effektiv eingetretenen Erfolgsrechnung:
+- Bruttoprämie
+- Anteil Rückversicherer an Bruttoprämie
+- Sonstige Erträge aus dem Versicherungsgeschäft
+- Zahlungen für Versicherungsfälle brutto
+- Anteil Rückversicherer an Zahlungen für Versicherungsfälle
+- Abschluss- und Verwaltungsaufwand
+- Anteil Rückversicherer an Abschluss- und Verwaltungsaufwand
+- Sonstige versicherungstechnische Aufwendungen für eigene Rechnung
+- Erträge aus Kapitalanlagen
+- Aufwendungen für Kapitalanlagen
+- Kapital- und Zinserfolg aus anteilgebundener Lebensversicherung
+- Sonstige finanzielle Erträge
+- Sonstige finanzielle Aufwendungen
+- Zinsaufwendungen für verzinsliche Verbindlichkeiten
+- Sonstige Erträge
+- Sonstige Aufwendungen
+- Ausserordentlicher Ertrag/Aufwand
+- Direkte Steuern
+
+Dann ändert sich der Wert der Aktivpositionen gemäss dem [Block «Wertveränderung der Aktiven»](#block-wertveränderung-der-aktiven).
+Die «Erträge aus Kapitalanlagen» in der effektiv beobachteten Erfolgsrechnung verändern sich um entstandene Wertänderung der Aktiven.
+
+Dann werden die Aktivpositionen gemäss dem [Block «Aufteilung Aktiven»](#block-aufteilung-aktiven) alloziert.
+Insbesondere führt dieselbe Aufteilung der Aktiven wie im SST \(N\) zusammen mit einer nichttrivialen Wertveränderung der Aktiven automatisch zu einem Rebalancing.
+
+Dann ändert sich der Anteil der versicherungstechnischen Rückstellungen aus der Rückversicherung gemäss den Positionen «Anteil Rückversicherer an Veränderung der versicherungstechnischen Rückstellungen» (verdientes Geschäft) und «Anteil Rückversicherer an Veränderung der Prämienüberträge» (unverdientes Geschäft).
+
+Die Bilanzpositionen 1.7–1.14 werden vereinfachend konstant belassen.
+
+Dann ändert sich der Best Estimate der Versicherungsverpflichtungen unter Berücksichtigung der (potenziell verschiedenen) Zinskurven im SST \(N\) und im SST \(N+1\).
+
+### 3. Blatt «Differences_Stat_SSTBalance»
+
+Der statutarische Wert der Aktiven 1.1–1.6 verändern sich gemäss der Wertveränderung der Aktiven auf dem Blatt «SST Balance Sheet» und dem [Block «Fortschreibung der statutarischen Bilanz»](#block-fortschreibung-der-statutarischen-Bilanz).
+
+Dann verändert sich der statutarische Wert von «Best Estimate der Versicherungsverpflichtungen (Schaden): Brutto - verdientes Geschäft» proportional zum Marktwert.
+
+Vereinfachend verändert sich der statutarische Wert von «Best Estimate der Versicherungsverpflichtungen (Schaden): Brutto - unverdientes Geschäft» proportional zum Marktwert.
+Es ist geplant, eine Eingabe für die Position zu unterstützen, weil die Entwicklung der Prämienüberträge unternehmensabhängig ist.
+
+### 4. Blatt «Asset Prices»
+
+Der neue Exposure in CHF der preisabhängigen Assets wird gemäss folgender Tabelle bestimmt:
+| Short cut              | SST-Bilanz-Position                        |
+|------------------------|--------------------------------------------|
+| participation          | 1.1.2 Beteiligungen                        |
+| equity                 | 1.1.6 Aktien + Anlagefonds: Aktien         |
+| hedge fund             | Hedgefonds                                 |
+| private equity         | Private Equity                             |
+| real estate private    | 1.1.1 Immobilien + Anlagefonds: Immobilien |
+| real estate commercial | 1.1.1 Immobilien + Anlagefonds: Immobilien |
+
+Dann wird zwischen den Währungen gemäss dem [Block «Aufteilung Preisabhängige Assets und Beteiligungen»](#block-aufteilung-preisabhängige-assets-und-beteiligungen) alloziert.
+
+### 5. Blatt «Fixed Income»
+
+Der neue Gesamtmarktwert in CHF der festverzinslichen Wertpapiere ist die Summe der folgenden Positionen der SST-Bilanz
+- 1.1.3 Festverzinsliche Wertpapiere
+- 1.1.5 Hypotheken
+- Anlagefonds: festverzinsliche Wertpapiere
+- Anlagefonds: Übrige
+
+Dann werden der Gesamtmarktwert und die Cashflows gemäss dem [Block «Aufteilung Festverzinsliche Wertpapiere»](#block-aufteilung-festverzinsliche-wertpapiere) alloziert.
+Wir nehmen an, dass die Duration der Cashflows unverändert bleibt.
+Wird eine Währung-Rating-Kombination alloziert, deren Gesamtmarktwert im SST \(N\) Null ist, dann wird ein Cashflow aus allen Cashflows für CHF abgeleitet.
+
+### 6. Blatt «Insurance Cashflows»
+
+Der neue Cashflow für die Sparte «Schaden» in CHF ist 
+\[
+    \text{BE}_{\text{nicht diskontiert}} \times \text{NL\_CH\_Direct\_PY\_Pattern} - \text{Zahlungen}_{\text{netto}} \times \text{NL\_CH\_Direct\_CY\_Pattern},
+\]
+wobei \(\text{BE}_{\text{nicht diskontiert}}\) der der nicht-diskontierte Wert der SST-Bilanz-Position «Best Estimate der Versicherungsverpflichtungen (Schaden): Brutto - verdientes Geschäft» ist,
+\(\text{NL\_CH\_Direct\_PY\_Pattern}\) das PY-Pattern aus dem Nonlife Template ist,
+\(\text{Zahlungen}_{\text{netto}}\) die Summe von «Zahlungen für Versicherungsfälle brutto» und «Anteil Rückversicherer an Zahlungen für Versicherungsfälle» aus der effektiv eingetretenen Erfolgsrechnung ist und
+\(\text{NL\_CH\_Direct\_CY\_Pattern}\) das CY-Pattern aus dem Nonlife Template ist,
+
+Die proportionale Aufteilung auf die verschiedenen Währungen bleibt konstant.
+
+Vereinfachend werden Prämienüberträge ignoriert.
+
+#### 7. Blatt «General Input»
+
