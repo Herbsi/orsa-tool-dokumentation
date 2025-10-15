@@ -319,6 +319,7 @@ Die Positionen verändern sich proportional zur Veränderung der SST-Bilanz-Posi
 | Hedgefonds                | Hedgefonds                                                                    |
 | Private Equity            | Private Equity                                                                |
 | Immobilien                | 1.1 Immobilien, Anlagefonds: Immobilien                                       |
+
 Vereinfachend bleiben der Delta-Restterm und SST-pflichtige Beteiligungen unverändert.
 
 ### Blatt «Credit Risk Merton»
