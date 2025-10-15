@@ -1,4 +1,4 @@
-baseURL = "https://herbsi.github.io/orsa-tool-dokumentation/"
+baseURL = "https://herbsi.github.io/orsa-tool-dokumentation"
 languageCode = 'de-CH'
 title = 'ORSA-Tool Dokumentation'
 theme = 'hugo-book'

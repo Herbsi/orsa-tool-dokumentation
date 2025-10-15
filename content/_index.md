@@ -26,7 +26,7 @@ Das ORSA-Tool besteht aus zwei Komponenten: dem Graphical User Interface (GUI) z
 
 ## Graphical User Interface (GUI)
 
-![ORSA-Tool GUI](/images/interface.png)
+![ORSA-Tool GUI](images/interface.png)
 
 ## ORSA-Input-Datei
 
@@ -44,7 +44,7 @@ Alle übrigen Zellenformatvorlagen enthalten Beschriftungen und dienen der Über
 
 ### Blatt «General Inputs»
 
-![Inputblatt «General Inputs»](/images/blatt-general-inputs.png)
+![Inputblatt «General Inputs»](images/blatt-general-inputs.png)
 
 Folgende Konfigurationen werden auf dem Blatt «General Inputs» gemacht:
 - **Anzahl Simulationen**: Die Solvenzberechung des FINMA `sstCalculation` R-Tools basiert darauf.
@@ -69,14 +69,14 @@ Folgende Eingabeblöcke stehen in der ORSA-Input-Datei zur Verfügung:
 
 #### Block «Erfolgsrechnung»
 
-![Inputblock «Erfolgsrechnung»](/images/block-erfolgsrechnung.png)
+![Inputblock «Erfolgsrechnung»](images/block-erfolgsrechnung.png)
 
 Im Block «Erfolgsrechnung» wird die Erfolgsrechnung gemäss AVO-FINMA eingegeben, wie sie für die Planungsperiode geplant ist.
 Diese Erfolgsrechnung wird als *Budget* bezeichnet.
 
 #### Block «Aufteilung Aktiven»»
 
-![Inputblock «Aufteilung Aktiven»](/images/block-erfolgsrechnung.png)
+![Inputblock «Aufteilung Aktiven»](images/block-erfolgsrechnung.png)
 
 Der Block «Aufteilung Aktiven» enthält einen Teil der Aktivpositionen der SST-Bilanz.
 Im Block wird eingegeben, welchen prozentualen Anteil eine Position eine Position an ihrer Superposition ausmacht.
@@ -87,7 +87,7 @@ Beim ersten Lauf des Tools wird die blaue Spalte automatisch mit den Werten des 
 
 #### Block «Aufteilung Preisabhängige Assets und Beteiligungen»
 
-![Inputblock «Aufteilung Preisabhängige Assets und Beteiligungen»](/images/block-aufteilung-preisabhängige-assets-und-beteiligungen.png)
+![Inputblock «Aufteilung Preisabhängige Assets und Beteiligungen»](images/block-aufteilung-preisabhängige-assets-und-beteiligungen.png)
 
 Der Block «Aufteilung Preisabhängige Assets und Beteiligungen» entspricht 1 : 1 dem Blatt «Asset Prices» aus dem SST Template.
 Im Block wird eingegeben, welchen prozentualen Anteil eine Währung an der entsprechenden Art ausmacht.
@@ -101,7 +101,7 @@ Beim ersten Lauf des Tools wird die blaue Spalte automatisch mit den Werten des 
 
 #### Block «Aufteilung Festverzinliche Wertpapiere»
 
-![Inputblock «Aufteilung Festverzinliche Wertpapiere»](/images/block-aufteilung-festverzinsliche-wertpapiere.png)
+![Inputblock «Aufteilung Festverzinliche Wertpapiere»](images/block-aufteilung-festverzinsliche-wertpapiere.png)
 
 Der Block «Aufteilung Festverzinsliche Wertpapiere» entspricht 1 : 1 dem Blatt «Fixed Income» aus dem SST Template.
 Im Block wird eingegeben, welchen prozentualen Anteil eine Währung-Rating-Kombination an allen gehaltenen festverzinslichen Wertpapieren ausmacht.
@@ -111,7 +111,7 @@ Beim ersten Lauf des Tools wird die blaue Spalte automatisch mit den Werten des 
 
 #### Block «lognormal parameters»
 
-![Inputblock «lognormal parameters»](/images/block-lognormal-parameters.png)
+![Inputblock «lognormal parameters»](images/block-lognormal-parameters.png)
 
 Der Block «lognormal parameters» entspricht den Spalten «lognormal parameters» auf dem Blatt «Non Life» aus dem SST Template.
 Falls für die Berechnung des versicherungstechnischen Risikos die Parameter der Lognormalverteilung gewählt werden, sind die Parameter \(\mu\) respektive \(\sigma\) der Lognormalverteilung einzutragen.
@@ -120,7 +120,7 @@ Beim ersten Lauf des Tools wird die blaue Spalte automatisch mit den Werten des 
 
 #### Block «Anrechnung der Aktiven am gebundenen Vermögen»
 
-![Inputblock «Anrechnung der Aktiven am gebundenen Vermögen»](/images/block-anrechnung-der-aktiven-am-gebundenen-vermögen.png)
+![Inputblock «Anrechnung der Aktiven am gebundenen Vermögen»](images/block-anrechnung-der-aktiven-am-gebundenen-vermögen.png)
 
 Der Block «Anrechnung der Aktiven am gebundenen Vermögen» enthält einen Teil der Aktivpositionen der Bilanz gemäss AVO-FINMA.
 Im Block wird angegeben, welcher prozentuale Anteil einer Position dem gebundenen Vermögen angerechnet wird.
@@ -131,7 +131,7 @@ Die grauen Positionen dienen der Übersicht; sie können nicht dem gebundenen Ve
 
 #### Block «Fortschreibung der statutarischen Bilanz»
 
-![Inputblock «Fortschreibung der statutarischen Bilanz»](/images/block-fortschreibung-der-statutarischen-bilanz.png)
+![Inputblock «Fortschreibung der statutarischen Bilanz»](images/block-fortschreibung-der-statutarischen-bilanz.png)
 
 Der Block «Fortschreibung der statutarischen Bilanz» führt alle Aktivpositionen der Bilanz gemäss AVO-FINMA, die sich im ORSA-Prozess verändern können.
 Im Block wird angegeben, wie die statuarische Position abhängig von der entsprechenden marktnah-bewerteten Position in der SST Bilanz verändert wird.
@@ -147,7 +147,7 @@ Zusätzlich sind folgene Blöcke verfügbar, um ein Szenario festzulegen:
 
 #### Block «Auslenkung der Erfolgsrechnung»
 
-![Inputblock «Auslenkung der Erfolgsrechnung»](/images/block-auslenkung-der-erfolgsrechnung.png)
+![Inputblock «Auslenkung der Erfolgsrechnung»](images/block-auslenkung-der-erfolgsrechnung.png)
 
 Der Block «Auslenkung der Erfolgsrechnung» ist eine zweite Erfolgsrechnung gemäss AVO-FINMA.
 Im Block wird ein optionaler Delta-Wert zum Budget eingegeben.
@@ -163,7 +163,7 @@ In die letzte Spalte kann nichts eingegeben werden, weil die Solvenz jeweils zum
 
 #### Block «Wertveränderung der Aktiven»
 
-![Inputblock «Wertveränderung der Aktiven»](/images/block-wertveränderung-der-aktiven.png)
+![Inputblock «Wertveränderung der Aktiven»](images/block-wertveränderung-der-aktiven.png)
 
 Der Block «Wertveränderung der Aktiven» enthält alle Aktivpositionen, die sich im ORSA-Prozess verändern können.
 Eine leere Eingabe lässt die Position unberührt.
@@ -174,7 +174,7 @@ In die letzte Spalte kann nichts eingegeben werden, weil die Solvenz jeweils zum
 
 #### Block «Auslenkung der gesamten Zinskurve»
 
-![Inputblock «Auslenkung der gesamten Zinskurve»](/images/block-auslenkung-der-gesamten-zinskurve.png)
+![Inputblock «Auslenkung der gesamten Zinskurve»](images/block-auslenkung-der-gesamten-zinskurve.png)
 
 Der Block «Auslenkung der gesamten Zinskurve» enthält alle Währungen, die im Blatt «Market Initial Values» im SST Template eine Zinskurve hat.
 Im Block wird angegeben, um wie viele Basispunkte eine Zinskurve ausgelenkt wird.
@@ -186,7 +186,7 @@ In die letzte Spalte kann nichts eingegeben werden, weil die Solvenz jeweils zum
 
 #### Block «Konstante Zinskurve»
 
-![Inputblock «Konstante Zinskurve»](/images/block-konstante-zinskurve.png)
+![Inputblock «Konstante Zinskurve»](images/block-konstante-zinskurve.png)
 
 Der Block «Konstante Zinskurve» enthält alle Währungen, die im Blatt «Market Initial Values» im SST Template eine Zinskurve hat.
 Im Block wird angegeben, welchen konstanten Wert eine Zinskurve haben soll.
